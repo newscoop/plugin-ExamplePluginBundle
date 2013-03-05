@@ -1,0 +1,23 @@
+{
+    "name": "newscoop/example-plugin-bundle",
+    "description": "Example plugin bundle for Newscoop",
+    "keywords": ["newscoop", "example", "cms", "integration"],
+    "version": "0.1",
+    "type": "newscoop-plugin",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Pawel Mikolajczuk",
+            "email": "pawel.mikolajczuk@sourcefabric.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "newscoop/plugins-installer": "*",
+    },
+    "autoload": {
+        "psr-0": { "Newscoop\\ExamplePluginBundle\\NewscoopExamplePluginBundle": "" }
+    },
+    "target-dir": "Newscoop/ExamplePluginBundle",
+    "minimum-stability": "dev"
+}
