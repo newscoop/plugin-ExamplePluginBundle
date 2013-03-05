@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "newscoop/plugins-installer": "*",
+        "newscoop/plugins-installer": "*"
     },
     "autoload": {
         "psr-0": { "Newscoop\\ExamplePluginBundle\\NewscoopExamplePluginBundle": "" }
