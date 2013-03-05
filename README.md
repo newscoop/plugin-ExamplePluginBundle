@@ -1,0 +1,4 @@
+ExamplePluginBundle
+===================
+
+Newscoop ExamplePluginBundle
