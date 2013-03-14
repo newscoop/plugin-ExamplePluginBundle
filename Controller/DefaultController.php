@@ -13,6 +13,6 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->render('NewscoopExamplePluginBundle:Default:index2.html.smarty');
+        return $this->render('NewscoopExamplePluginBundle:Default:index.html.smarty');
     }
 }

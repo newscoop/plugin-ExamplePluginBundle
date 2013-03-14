@@ -16,19 +16,28 @@ use Newscoop\EventDispatcher\Events\GenericEvent;
  */
 class LifecycleSubscriber implements EventSubscriberInterface
 {
+    private $em;
+
+    public function __construct($em) {
+        $this->em = $em;
+    }
+
     public function install(GenericEvent $event)
     {
-        // do something on install
+        $tool = new \Doctrine\ORM\Tools\SchemaTool($this->em);
+        $tool->updateSchema($this->getClasses(), true);
     }
 
     public function update(GenericEvent $event)
     {
-        // do something on update
+        $tool = new \Doctrine\ORM\Tools\SchemaTool($this->em);
+        $tool->updateSchema($this->getClasses(), true);
     }
 
     public function remove(GenericEvent $event)
     {
-        //do something on remove
+        $tool = new \Doctrine\ORM\Tools\SchemaTool($this->em);
+        $tool->dropSchema($this->getClasses(), true);
     }
 
     public static function getSubscribedEvents()
@@ -37,6 +46,12 @@ class LifecycleSubscriber implements EventSubscriberInterface
             'plugin.install' => array('install', 1),
             'plugin.update' => array('update', 1),
             'plugin.remove' => array('remove', 1),
+        );
+    }
+
+    private function getClasses(){
+        return array(
+          $this->em->getClassMetadata('Newscoop\ExamplePluginBundle\Entity\ExampleEntity'),
         );
     }
 }
