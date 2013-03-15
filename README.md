@@ -211,13 +211,32 @@ And in our plugin template we can do something like this:
 
 ## Create plugin entities
 
-## Provide smarty blocks
+In plugins and in Newscoop we use Doctrine2 for database entities management, so if you know Doctrine2 then you will know how to work with entities in plugins. If you don't know about Doctrine2 then this is great oportunity - [read more here][doctrine]
 
-//smarty plugins directory in plugin Resources directory.
+Few important things:
+
+* You can get entity manager from newscoop container (in plugin controlle simply use ```$this->container->get('em');```)
+* We use full FQN notation ex. ```$em->getRepository('Newscoop\ExamplePluginBundle\Entity\OurEntity');``` 
+
+## Provide smarty plugins
+
+As main template language we use smarty3. Smarty have realy nice feature called "Plugins" - read more about them [here][smarty].
+
+If you want provide smarty plugins with your Newscoop plugin you must keep them in specific place:
+
+``` ex. ExamplePluginBundle/Resources/smartyPlugins ```
+
+Thats all - plugins will be autloaded and avaiable in your templates.
 
 ## Provide newscoop widgets
 
-//newscoopWidgets directory in plugin root directory.
+Newscoop admin panel have realy cool feature - dashboard widgets. Read more about Newscoop Dashboard Widgets [here][dashboard-widgets]
+
+If you want enable your widget you must place it in special distecotry inside plugin:
+
+``` ExamplePluginBundle/newscoopWidgets ```
+
+``` // for example:  ExamplePluginBundle/newscoopWidgets/mysuperwidget ```
 
 ## Register events listeners
 
@@ -225,3 +244,6 @@ And in our plugin template we can do something like this:
 [packagist]: https://packagist.org/
 [github]: https://github.com/
 [satis]: https://github.com/composer/satis
+[doctrine]: http://docs.doctrine-project.org/en/latest/
+[smarty]: http://www.smarty.net/docs/en/plugins
+[dashboard-widgets]: http://www.sourcefabric.org/en/community/blog/1404/How-to-create-dashboard-widgets-in-Newscoop.htm
