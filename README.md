@@ -3,17 +3,17 @@ ExamplePluginBundle
 
 Newscoop ExamplePluginBundle
 
-## Instalation/Updating/Removing
+## Installation/Updating/Removing
 #### Overview
 
-Whole plugins system (instalation/managemenet) is based on [Composer][1] packages.
-Packages can live on [github.com][github] or private own git repositories but they must be listed on [packagist.org][packagist] or private own (based on [satis][satis]) composer repositories.
+The whole plugin system (installation/management) is based on [Composer][1] packages.
+Packages can live on [github.com][github] or your own private git repositories but they must be listed on [packagist.org][packagist] or private own (based on [satis][satis]) composer repositories.
 
-For now we support only this way of plugins management. But we have in plans instalations from .zip files.
+For now we support only this way of plugins management. But we have plans for installation from .zip files.
 
-Whole management process should be dony by our Newscoop\Services\PluginsManagerService class. It's important because this way allow for developers to react on instalation/remove/update events (and more) in their plugins.
+The whole management process should be done through our Newscoop\Services\PluginsManagerService class. It's important because this way we allow for developers to react on installation/remove/update events (and more) in their plugins.
 
-#### Instalation
+#### Installation
 
 ```
     php application/console plugins:install "vendor\plugin-name" "optional version"
@@ -25,7 +25,7 @@ Install command will add your package to your composer.json file (and install it
 ```
     php application/console plugins:remove "vendor\plugin-name"
 ```
-Remove command will remove your package from composer.sjon file and update your dependencies (for now this is only way), it will also remove info about plugin from plugins/avaiable_plugins.json file and fire "plugin.remove" event with plugin_name parameter in event data.
+Remove command will remove your package from composer.json file and update your dependencies (for now this is only way), it will also remove info about plugin from plugins/avaiable_plugins.json file and fire "plugin.remove" event with plugin_name parameter in event data.
 
 #### Updating
 
@@ -127,8 +127,8 @@ In subscriber included in this plugin you can find exaple of database updating (
 
 ## Create new controllers (routings)
 
-Newscoop plugins system is based on Symfony Bundles system - so (almost) all Symfony features are avaiable.
-If you want create own new controller (with routing) then you must do only fe things, first - create controller class:
+Newscoop plugins system is based on the Symfony Bundles system - so (almost) all Symfony features are avaiable.
+If you want create own new controller (with routing) then you must only do a few things, first - create controller class:
 
 ```
 // ExamplePluginBundle/Controller/LifecycleSubscriber.php
