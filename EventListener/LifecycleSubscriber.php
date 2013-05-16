@@ -26,12 +26,18 @@ class LifecycleSubscriber implements EventSubscriberInterface
     {
         $tool = new \Doctrine\ORM\Tools\SchemaTool($this->em);
         $tool->updateSchema($this->getClasses(), true);
+
+        // Generate proxies for entities
+        $this->em->getProxyFactory()->generateProxyClasses($this->getClasses(), __DIR__ . '/../../../../library/Proxy');
     }
 
     public function update(GenericEvent $event)
     {
         $tool = new \Doctrine\ORM\Tools\SchemaTool($this->em);
         $tool->updateSchema($this->getClasses(), true);
+
+        // Generate proxies for entities
+        $this->em->getProxyFactory()->generateProxyClasses($this->getClasses(), __DIR__ . '/../../../../library/Proxy');
     }
 
     public function remove(GenericEvent $event)
@@ -51,7 +57,7 @@ class LifecycleSubscriber implements EventSubscriberInterface
 
     private function getClasses(){
         return array(
-          $this->em->getClassMetadata('Newscoop\ExamplePluginBundle\Entity\ExampleEntity'),
+          $this->em->getClassMetadata('Newscoop\ExamplePluginBundle\Entity\Example'),
         );
     }
 }

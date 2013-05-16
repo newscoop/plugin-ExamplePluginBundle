@@ -7,11 +7,11 @@
  */
 
 /**
- * Newscoop paypal_payment_form block plugin
+ * Newscoop test_plugin block plugin
  *
  * Type:     block
- * Name:     paypal_payment_form
- * Purpose:  Displays a form for paypal cart
+ * Name:     test_plugin
+ * Purpose:  Displays a test message
  *
  * @param string
  *     $params
