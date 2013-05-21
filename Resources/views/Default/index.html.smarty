@@ -1,4 +1,4 @@
 
 <h1>hello !</h1>
 
-{{ test_plugin }} {{ /test_plugin }}
+{{ test_plugin_block }} {{ /test_plugin_block }}
