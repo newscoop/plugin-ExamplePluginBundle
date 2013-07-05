@@ -221,6 +221,48 @@ Few important things:
 * You can get entity manager from newscoop container (in plugin controlle simply use ```$this->container->get('em');```)
 * We use full FQN notation ex. ```$em->getRepository('Newscoop\ExamplePluginBundle\Entity\OurEntity');``` 
 
+## Provide admin controllers
+
+All we need is a simple controller (ex. ```Newscoop\ExamplePluginBundle\Controller\DefaultController```) with action and routing.
+In plugins admin controllers we can use twig (also smarty) as template engine. You can see how extend default admin layout (header + menu+footer) here: ```Resources/views/Default/admin.html.twig```
+
+### Provide plugin menu in Newscoop admin menu:
+
+For Newscoop menu we use [KNP/Menu][KNP/Menu] library (with [KNP/MenuBundle][KNP/MenuBundle]), so extending o=newscoop menu is realy easy.
+
+We need only one service (and declaration in services) - declaration:
+
+```
+    newscoop_example_plugin.configure_menu_listener:
+        class: Newscoop\ExamplePluginBundle\EventListener\ConfigureMenuListener
+        tags:
+          - { name: kernel.event_listener, event: newscoop_newscoop.menu_configure, method: onMenuConfigure }
+```
+
+and menu configuration litener 
+
+```
+// EventListener/ConfigureMenuListener.php
+<?php
+namespace Newscoop\ExamplePluginBundle\EventListener;
+
+use Newscoop\NewscoopBundle\Event\ConfigureMenuEvent;
+
+class ConfigureMenuListener
+{
+    public function onMenuConfigure(ConfigureMenuEvent $event)
+    {
+        $menu = $event->getMenu();
+        $menu[getGS('Plugins')]->addChild(
+            'Example Plugin', 
+            array('uri' => $event->getRouter()->generate('newscoop_exampleplugin_default_admin'))
+        );
+    }
+}
+```
+
+and it's it - you should have your plugin menu in newscoop menu.
+
 ## Provide smarty plugins
 
 As main template language we use smarty3. Smarty have realy nice feature called "Plugins" - read more about them [here][smarty].
@@ -250,3 +292,5 @@ If you want enable your widget you must place it in special distecotry inside pl
 [doctrine]: http://docs.doctrine-project.org/en/latest/
 [smarty]: http://www.smarty.net/docs/en/plugins
 [dashboard-widgets]: http://www.sourcefabric.org/en/community/blog/1404/How-to-create-dashboard-widgets-in-Newscoop.htm
+[KNP/Menu]: https://github.com/KnpLabs/KnpMenu
+[KNP/MenuBundle]: https://github.com/KnpLabs/KnpMenuBundle
