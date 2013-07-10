@@ -11,7 +11,7 @@ Packages can live on [github.com][github] or your own private git repositories b
 
 For now we support only this way of plugins management. But we have plans for installation from .zip files.
 
-The whole management process should be done through our Newscoop\Services\PluginsManagerService class. It's important because this way we allow for developers to react on installation/remove/update events (and more) in their plugins.
+The whole management process should be done through our Newscoop\Services\Plugin\ManagerService class. It's important because this way we allow for developers to react on installation/remove/update events (and more) in their plugins.
 
 #### Installation
 
