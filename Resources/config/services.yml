@@ -15,4 +15,4 @@ services:
         class:     "Newscoop\ExamplePluginBundle\Controller\HooksController"
         arguments: ["@service_container"]
         tags:
-          - { name: kernel.event_listener, event: newscoop_admin.interface.edit.sidebar, method: sidebarAction }
+          - { name: kernel.event_listener, event: newscoop_admin.interface.article.edit.sidebar, method: sidebarAction }
