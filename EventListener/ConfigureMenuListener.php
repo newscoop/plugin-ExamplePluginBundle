@@ -13,7 +13,7 @@ use Newscoop\NewscoopBundle\Event\ConfigureMenuEvent;
 class ConfigureMenuListener
 {
     /**
-     * @param \Newscoop\NewscoopBundle\Event\ConfigureMenuEvent $event
+     * @param ConfigureMenuEvent $event
      */
     public function onMenuConfigure(ConfigureMenuEvent $event)
     {
