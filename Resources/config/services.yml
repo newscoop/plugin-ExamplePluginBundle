@@ -11,8 +11,8 @@ services:
         tags:
           - { name: kernel.event_listener, event: newscoop_newscoop.menu_configure, method: onMenuConfigure }
 
-    newscoop_example_plugin.hooks.controller:
-        class:     "Newscoop\ExamplePluginBundle\Controller\HooksController"
+    newscoop_example_plugin.hooks.listener:
+        class:     "Newscoop\ExamplePluginBundle\EventListener\HooksListener"
         arguments: ["@service_container"]
         tags:
-          - { name: kernel.event_listener, event: newscoop_admin.interface.article.edit.sidebar, method: sidebarAction }
+          - { name: kernel.event_listener, event: newscoop_admin.interface.article.edit.sidebar, method: sidebar }
