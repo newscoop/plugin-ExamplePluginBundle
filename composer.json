@@ -2,7 +2,7 @@
     "name": "newscoop/example-plugin-bundle",
     "description": "Example plugin bundle for Newscoop",
     "keywords": ["newscoop", "example", "cms", "integration"],
-    "version": "0.1",
+    "version": "0.2",
     "type": "newscoop-plugin",
     "license": "GPL-3.0",
     "authors": [
@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "newscoop/plugins-installer": "*"
+        "newscoop/plugins-installer": ">=v0.2"
     },
     "autoload": {
         "psr-0": { "Newscoop\\ExamplePluginBundle\\NewscoopExamplePluginBundle": "" }
