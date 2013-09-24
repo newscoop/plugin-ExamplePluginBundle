@@ -1,0 +1,9 @@
+Plugins: Plugins
+plugin:
+  sidebar:
+    name: "ExamplePluginBundle"
+    info: "This is response from plugin hook!"
+  admin:
+    title: "Test plugin page"
+    titlecontent: Example Plugin
+    content: Example Plugin content

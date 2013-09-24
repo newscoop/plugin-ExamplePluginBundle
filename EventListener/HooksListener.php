@@ -15,12 +15,14 @@ class HooksListener
     }
 
     public function sidebar(PluginHooksEvent $event)
-    {
+    {   
+        $translator = $this->container->get('translator');
+
         $response = $this->container->get('templating')->renderResponse(
             'NewscoopExamplePluginBundle:Hooks:sidebar.html.twig',
             array(
-                'pluginName' => 'ExamplePluginBundle',
-                'info' => 'This is response from plugin hook!'
+                'pluginName' => $translator->trans('plugin.sidebar.name'),
+                'info' => $translator->trans('plugin.sidebar.info')
             )
         );
 

@@ -12,15 +12,23 @@ use Newscoop\NewscoopBundle\Event\ConfigureMenuEvent;
 
 class ConfigureMenuListener
 {
+    private $container;
+
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
+
     /**
      * @param ConfigureMenuEvent $event
      */
     public function onMenuConfigure(ConfigureMenuEvent $event)
     {
         $menu = $event->getMenu();
+        $translator = $this->container->get('translator');
 
-        $menu[getGS('Plugins')]->addChild(
-        	'Example Plugin', 
+        $menu[$translator->trans('Plugins')]->addChild(
+        	$translator->trans('plugin.admin.titlecontent'), 
         	array('uri' => $event->getRouter()->generate('newscoop_exampleplugin_default_admin'))
         );
     }
