@@ -11,7 +11,7 @@ services:
         tags:
             - { name: kernel.event_listener, event: newscoop_newscoop.menu_configure, method: onMenuConfigure }
         arguments: 
-            - @service_container
+            - @translator
 
     newscoop_example_plugin.hooks.listener:
         class:     "Newscoop\ExamplePluginBundle\EventListener\HooksListener"
