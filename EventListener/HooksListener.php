@@ -15,7 +15,7 @@ class HooksListener
     }
 
     public function sidebar(PluginHooksEvent $event)
-    {   
+    {
         $translator = $this->container->get('translator');
 
         $response = $this->container->get('templating')->renderResponse(

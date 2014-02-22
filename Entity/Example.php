@@ -8,7 +8,7 @@
 
 namespace Newscoop\ExamplePluginBundle\Entity;
 
-use Doctrine\ORM\Mapping AS ORM;
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity()
  * @ORM\Table(name="plugin_example_example")
  */
-class Example 
+class Example
 {
     /**
      * @ORM\Id()
@@ -67,7 +67,7 @@ class Example
     public function setName($name)
     {
         $this->name = $name;
-        
+
         return $name;
     }
 
@@ -79,7 +79,7 @@ class Example
     public function setDescription($description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
 
@@ -91,8 +91,7 @@ class Example
     public function setCreatedAt(\DateTime $created_at)
     {
         $this->created_at = $created_at;
-        
+
         return $this;
     }
 }
-
