@@ -18,7 +18,8 @@ class LifecycleSubscriber implements EventSubscriberInterface
 {
     private $em;
 
-    public function __construct($em) {
+    public function __construct($em)
+    {
         $this->em = $em;
     }
 
@@ -55,7 +56,8 @@ class LifecycleSubscriber implements EventSubscriberInterface
         );
     }
 
-    private function getClasses(){
+    private function getClasses()
+    {
         return array(
           $this->em->getClassMetadata('Newscoop\ExamplePluginBundle\Entity\Example'),
         );
