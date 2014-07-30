@@ -3,6 +3,7 @@ services:
         class: Newscoop\ExamplePluginBundle\EventListener\LifecycleSubscriber
         arguments:
             - @em
+            - @newscoop.scheduler
         tags:
             - { name: kernel.event_subscriber}
 
